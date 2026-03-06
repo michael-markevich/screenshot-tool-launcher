@@ -30,6 +30,9 @@ jobs:
       - name: Build package
         run: dpkg-buildpackage -us -uc -b
 
+      - name: Collect built package
+        run: cp ../gnome-shell-extension-screenshot-tool-launcher_*.deb .
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
