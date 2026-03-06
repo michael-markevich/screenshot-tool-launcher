@@ -15,7 +15,7 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y dpkg-dev debhelper libglib2.0-bin
+          sudo apt-get install -y dpkg-dev debhelper libglib2.0-bin build-essential
 
       - name: Generate changelog version
         run: |
