@@ -56,11 +56,15 @@ export default class ScreenshotToolLauncherExtension extends Extension {
     }
 
     _isScreenshotSource(source) {
-        const icon = source.icon;
-        if (!(icon instanceof Gio.ThemedIcon))
-            return false;
-        return icon.get_names().some(n => n.startsWith('screenshot'));
-    }
+    if (source.title === 'Screen Capture')
+        return true;
+
+    const icon = source.icon;
+    if (!(icon instanceof Gio.ThemedIcon))
+        return false;
+
+    return icon.get_names().some(n => n.startsWith('screenshot'));
+        }
 
     _onSourceAdded(source) {
         if (!this._isScreenshotSource(source))
